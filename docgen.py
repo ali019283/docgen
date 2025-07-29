@@ -25,6 +25,7 @@ prompteng = """You are an expert code documenter. Add detailed documentation com
     8. Give ALL the files in response with some explanation, no leaving ANY files behind. Return the WHOLE file and a valid explanation for ALL the files i give.
     9. In the end, make a file named DOCGEN_DOCUMENT.md and document the whole project using markdown. DONT SKIP.
     10. Format response like this given below, when giving path, give the exact path dont give it all non-capital or dont convert numbers into letters, RAW TEXT ONLY:
+    11. DO NOT use "em dash", emojis and any fancy words, Keep your language simple. No showy words or jargon.
 
     === FILENAME: path/to/file.ext ===
     // Existing license header...
@@ -39,7 +40,7 @@ PROJECT_DIR = Path(os.getenv("PROJECT_DIR", ".")).resolve()
 MODEL = "deepseek/deepseek-r1"
 MAX_TOKENS = 128000
 MAX_RESPONSE_TOKENS = 64000
-EXTS = [".py", ".js", ".ts", ".cpp", ".c", ".h", ".java", ".rb", ".go", ".rs", ".cs", ".md"]
+EXTS = [".py", ".js", ".ts", ".jsx", ".tsx", ".cpp", ".c", ".h", ".java", ".rb", ".go", ".rs", ".cs", ".md", ".sh", ".bash", ".php" ]
 MAX_FILES_PER_BATCH = 5
 
 tokenizer = tiktoken.get_encoding("cl100k_base")
